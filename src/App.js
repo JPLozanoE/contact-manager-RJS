@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
-import AddPersonForm from './Components/AddPersonForm';
 import Header from './Components/Header/Header';
+import ContactManager from './Components/ContactManager';
+
+
+const contacts = ['James Smith', "Thomas Andersnon", "Bruce Wayne"]
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <AddPersonForm/>
+      <ContactManager data={contacts}/>
     </div>
   );
 }
