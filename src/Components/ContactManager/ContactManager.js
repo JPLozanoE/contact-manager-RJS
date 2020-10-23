@@ -11,23 +11,27 @@ export default class ContactManager extends Component {
         }
     }
 
-    addPerson(name) {
-        this.setState(prevState => ({
-            contacts: [
-                ...prevState.contacts,
-                name
-            ]
-        }));
+    // Pasamos esta funcion al componente hijo para que cambie el estado del padre props to child
+    // addPerson(name) {
+    //     this.setState(prevState => ({
+    //         contacts: [
+    //             ...prevState.contacts,
+    //             name
+    //         ]
+    //     }));
 
-        console.log(this.state);
-    }
+    //     console.log(this.state);
+    // }
 
     render() {
         return (
             <div>
-                <AddPersonForm handleSubmit={
-                    this.addPerson.bind(this)
-                }/>
+                <AddPersonForm 
+                // handleSubmit={
+                //     this.addPerson.bind(this)
+                // }
+
+                />
                 <PeopleList data={
                     this.state.contacts
                 }/>

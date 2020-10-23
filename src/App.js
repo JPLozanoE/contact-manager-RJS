@@ -5,14 +5,14 @@ import ContactManager from './Components/ContactManager';
 import GlobalStyle from './globalStyles';
 
 
-const contacts = ['James Smith', "Thomas Andersnon", "Bruce Wayne"]
+// const contacts = ['James Smith', "Thomas Andersnon", "Bruce Wayne"]
 
 function App() {
   return (
     <div className="App">
     <GlobalStyle Black />
       <Header/>
-      <ContactManager data={contacts}/>
+      <ContactManager/>
     </div>
   );
 }

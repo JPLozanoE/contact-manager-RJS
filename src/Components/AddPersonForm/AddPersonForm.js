@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
+import {addPerson} from '../../actions/actions'
+import {connect} from 'react-redux'
 
 const Button = styled.button`
-  background: #216EFC;
+  background: #ED97C7;
   border-radius: 0px 20px 20px 0px;
   border: 1px solid transparent;
-  color: white;
+  color: #934d68;
   ${'' /* margin: 0 1em; */}
   padding: 0.25em 1em;
   font-size: 24px;
@@ -54,10 +56,21 @@ class AddPersonForm extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.handleSubmit(this.state.person);
+        console.log(this.props.addPerson)
+        if(this.state.person!==''){
+            this.props.addPerson(this.state.person);
         this.setState({person: ''});
+        }
+
+        e.preventDefault();
+        // PROPS TO CHILD
+        // this.props.handleSubmit(this.state.person);
+        // this.setState({person: ''});
     }
 }
 
-export default AddPersonForm
+const mapDispatchToProps = {
+    addPerson
+}
+
+export default connect(null,mapDispatchToProps)(AddPersonForm) 

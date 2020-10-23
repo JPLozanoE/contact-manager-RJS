@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {connect} from 'react-redux'
 
 const Nombre = styled.li`
   color: #9b798b;
@@ -9,15 +10,21 @@ const Nombre = styled.li`
 
 const ListaNombres = styled.ul`
   list-style-type:none;
-  text-align:left;
 `
 
-function PeopleList(props) { // console.log(props.data);
-    const arr = props.data;
+function PeopleList(props) {
+   console.log(props);
+    const arr = props.contacts;
     const ListItems = arr.map((val, index) => 
     <Nombre key={index}>{val}</Nombre>)
 
     return <div><ListaNombres>{ListItems}</ListaNombres></div> 
 }
 
-export default PeopleList
+function mapStateToProps(state){
+  return{
+    contacts:state.contacts
+  }
+}
+
+export default connect(mapStateToProps)(PeopleList)
